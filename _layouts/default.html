@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>{{ page.title }}</title>
+			<!-- link to main stylesheet -->
+			<link rel="stylesheet" type="text/css" href="/css/main.css">
+		</head>
+		<body>
+			<nav>
+	    		<ul>
+	        		<li><a href="/">Home</a></li>
+		        	<li><a href="/about">About</a></li>
+	        		<li><a href="/resume">Resume</a></li>
+				<li><a href="/math">Math</a></li>
+				<li><a href="/datamining">Data Mining</a></li>
+				<li><a href="/probability_statistics">Probability & Statistics</a></li>
+				<li><a href="/other">Other Documents</a></li>
+
+
+
+	    		</ul>
+			</nav>
+			<div class="container">
+			
+			{{ content }}
+			
+			{% if page.path contains '_posts' %}
+
+			{% if content contains 'reversefootnote' %}
+				<aside class="note"></aside>
+				<script async src="{{site.baseurl}}/assets/footnotes.js"></script>
+			{% endif %}
+
+		{% endif %}		
+				
+			</div><!-- /.container -->
+			<footer>
+	    		<ul>
+				<p>Feel free to reach me via email</p>
+	        		<li><a href="mailto:hanm6686@gmail.com">Email</a></li>
+				</ul>
+			</footer>
+		</body>
+	</html>
