@@ -1,45 +1,27 @@
-<!DOCTYPE html>
-	<html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<li><a href="/about">About</a></li>
-	        		<li><a href="/resume">Resume</a></li>
-				<li><a href="/math">Math</a></li>
-				<li><a href="/datamining">Data Mining</a></li>
-				<li><a href="/probability_statistics">Probability & Statistics</a></li>
-				<li><a href="/other">Other Documents</a></li>
+---
+layout: default
+title: Ha Nguyen
+---
 
+<div class="blurb">
+	<h1>Hi there, I'm Ha Nguyen</h1>
 
+	<p>I would like to write down what I have learnt in this blog.</p>
+	<ul class="posts">
 
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			{{ content }}
-			
-			{% if page.path contains '_posts' %}
+		{% for post in site.posts %}
 
-			{% if content contains 'reversefootnote' %}
-				<aside class="note"></aside>
-				<script async src="{{site.baseurl}}/assets/footnotes.js"></script>
-			{% endif %}
-
-		{% endif %}		
+		<li>
+			<div>
+				<span style="float: right">{{ post.date | date: "%b %d, %Y" }}</span>
 				
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>
-				<p>Feel free to reach me via email</p>
-	        		<li><a href="mailto:hanm6686@gmail.com">Email</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+				<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+				<p style="line-height:2px">
+			</div>
+		</li>
+		{% endfor %}
+			
 
+	</ul>
+
+</div><!-- /.blurb -->
